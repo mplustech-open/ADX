@@ -1,0 +1,32 @@
+message BidResponse {
+    required string id = 1;
+
+    message SeatBid {
+        message Bid {
+            required string id = 1;
+            required string impid = 2;
+            required int64 price = 3;
+            optional string adid = 4;
+            optional string nurl = 5;
+            optional string adm = 6;
+            repeated string adomain = 7;
+            optional string bundle = 8;
+            optional string iurl = 9;
+            optional string cid = 10;
+            optional string crid = 11;
+            repeated string cat = 12;
+            repeated int32 attr = 13;
+            optional int32 api = 14;
+            optional int32 protocol = 15;
+            optional string dealid = 16;
+            optional int32 w = 17;
+            optional int32 h = 18;
+        }
+        repeated Bid bid = 1;
+        optional string seat = 2;
+    }
+    repeated SeatBid seatbid = 2;
+    optional string bidid = 3;
+    optional string cur = 4;
+    optional int32 nbr = 5;
+}
