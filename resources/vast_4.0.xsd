@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:element name="VAST">
     <xs:annotation>
-      <xs:documentation>IAB VAST, Video Ad Serving Template, video xml ad response, Version 4.0.0, xml schema prepared by Twitter</xs:documentation>
+      <xs:documentation>IAB VAST, Video Ad Serving Template, video xml ad response, Version 4.0.0, xml schema prepared by MplusTech</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:choice>
@@ -102,6 +102,11 @@
                                     </xs:annotation>
                                     <xs:complexType>
                                       <xs:sequence>
+                                        <xs:element name="Icons" minOccurs="0" maxOccurs="1" type="Icons_type">
+                                          <xs:annotation>
+                                            <xs:documentation>Contains all icon elements</xs:documentation>
+                                          </xs:annotation>
+                                        </xs:element>
                                         <xs:element name="Duration" minOccurs="1" maxOccurs="1" type="xs:time">
                                           <xs:annotation>
                                             <xs:documentation>Duration in standard time format, hh:mm:ss</xs:documentation>
@@ -125,11 +130,6 @@
                                         <xs:element name="MediaFiles" minOccurs="0" maxOccurs="1" type="MediaFiles_type">
                                           <xs:annotation>
                                             <xs:documentation>Contains any number of linear files</xs:documentation>
-                                          </xs:annotation>
-                                        </xs:element>
-                                        <xs:element name="Icons" minOccurs="0" maxOccurs="1" type="Icons_type">
-                                          <xs:annotation>
-                                            <xs:documentation>Contains all icon elements</xs:documentation>
                                           </xs:annotation>
                                         </xs:element>
                                         <xs:element name="InteractiveCreativeFile" minOccurs="0" maxOccurs="1" type="InteractiveCreativeFile_type">
@@ -927,11 +927,6 @@
   </xs:complexType>
   <xs:complexType name="MediaFiles_type">
     <xs:sequence>
-      <xs:element name="Mezzanine" minOccurs="0" maxOccurs="1" type="xs:anyURI">
-        <xs:annotation>
-          <xs:documentation>URL to a raw, high-quality media file</xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="MediaFile" minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Location of linear file</xs:documentation>
@@ -1008,6 +1003,11 @@
             </xs:extension>
           </xs:simpleContent>
         </xs:complexType>
+      </xs:element>
+      <xs:element name="Mezzanine" minOccurs="0" maxOccurs="1" type="xs:anyURI">
+        <xs:annotation>
+          <xs:documentation>URL to a raw, high-quality media file</xs:documentation>
+        </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
