@@ -1,3 +1,6 @@
+option java_package = "com.modc.ortb.proto";
+option java_outer_classname = "BidRequestBuilder";
+
 message BidRequest {
   message Imp {
     message Banner {
@@ -9,6 +12,10 @@ message BidRequest {
     }
 
     message Video {
+      message VideoExt {
+        optional int32 maxcreative = 1;
+      }
+      
       optional int32 w = 1;
       optional int32 h = 2;
       repeated string mimes = 3;
@@ -22,7 +29,8 @@ message BidRequest {
       optional int32 maxbitrate = 11;
       optional int32 boxingallowed = 12;
       repeated int32 delivery = 13;
-      optional int32 protocols = 14;
+      repeated int32 protocols = 15;
+      optional VideoExt ext = 16;
     }
 
     message Audio {
