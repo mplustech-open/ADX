@@ -15,7 +15,7 @@ public class PriceCryptorSample {
 	private static final String EncryptionKey = "77165979f11b497da6f81b3bb320932c";
 	private static final String IntegrityKey = "f9db51664f8a44f99ef08b17f6c11ab3";
 
-	public static void main(String[] args) throws InvalidKeyException, SignatureException {
+	public static void main(String[] args) {
 		long price = 12345l;
 		long time = 1464838032123l;
 		long serverId = 29235l;
