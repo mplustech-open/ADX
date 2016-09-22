@@ -76,6 +76,7 @@ message BidRequest {
     optional string bidfloorcur = 9;
     optional int32 secure = 10;
     optional ImpExt ext = 11;
+    optional string tagid = 12;
   }
 
   message Publisher {
