@@ -54,7 +54,7 @@ message BidRequest {
     message Pmp {
       message Deal {
         required string id = 1;
-        required int64 bidfoor = 2;
+        required int64 bidfloor = 2;
         optional string bidfloorcur = 3;
         optional int32 at = 4;
         repeated string wadomain = 5;
