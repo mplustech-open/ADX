@@ -1,0 +1,154 @@
+option java_package = "com.modc.ortb.proto";
+option java_outer_classname = "BidRequestBuilder";
+
+message BidRequest {
+  message Imp {
+    message Banner {
+      optional int32 w = 1;
+      optional int32 h = 2;
+      repeated string btype = 3;
+      repeated string mimes = 4;
+      repeated int32 api = 5;
+    }
+
+    message Video {
+      message VideoExt {
+        optional int32 maxcreative = 1;
+      }
+      
+      optional int32 w = 1;
+      optional int32 h = 2;
+      repeated string mimes = 3;
+      repeated int32 api = 4;
+      optional int32 minduration = 5;
+      optional int32 maxduration = 6;
+      optional int32 startdelay = 7;
+      optional int32 linearity = 8;
+      optional int32 skip = 9;
+      optional int32 minbitrate = 10;
+      optional int32 maxbitrate = 11;
+      optional int32 boxingallowed = 12;
+      repeated int32 delivery = 13;
+      repeated int32 protocols = 15;
+      optional VideoExt ext = 16;
+    }
+
+    message Audio {
+      repeated string mimes = 1;
+      repeated int32 api = 2;
+      optional int32 minduration = 3;
+      optional int32 maxduration = 4;
+      optional int32 startdelay = 5;
+      optional int32 minbitrate = 6;
+      optional int32 maxbitrate = 7;
+      repeated int32 delivery = 8;
+      repeated int32 protocols = 9;
+    }
+
+    message Native {
+      required string request = 1;
+      optional int32 ver = 2;
+      repeated int32 api = 3;
+    }
+
+    message Pmp {
+      message Deal {
+        required string id = 1;
+        optional int64 bidfloor = 2;
+        optional string bidfloorcur = 3;
+        optional int32 at = 4;
+        repeated string wadomain = 5;
+      }
+      repeated Deal deals = 1;
+    }
+
+    message ImpExt {
+      optional int32 fullscreen = 1;
+    }
+    required string id = 1;
+    optional Banner banner = 2;
+    optional Video video = 3;
+    optional Audio audio = 4;
+    optional Native nativead = 5;
+    optional Pmp pmp = 6;
+    optional int32 instl = 7;
+    optional int64 bidfloor = 8;
+    optional string bidfloorcur = 9;
+    optional int32 secure = 10;
+    optional ImpExt ext = 11;
+    optional string tagid = 12;
+  }
+
+  message Publisher {
+    optional string id = 1;
+    optional string name = 2;
+    repeated string cat = 3;
+    optional string domain = 4;
+  }
+
+  message Geo {
+    optional float lat = 1;
+    optional float lon = 2;
+    optional string country = 3;
+    optional string region = 4;
+    optional string city = 5;
+    optional int32 ufcoffset = 7;
+  }
+
+  message App {
+    optional string id = 1;
+    optional string name = 2;
+    optional string bundle = 3;
+    optional string domain = 4;
+    optional string storeurl = 5;
+    repeated string cat = 6;
+    repeated string sectioncat = 7;
+    repeated string pagecat = 8;
+    optional string ver = 9;
+    optional int32 paid = 10;
+    optional BidRequest.Publisher publisher = 11;
+    optional string keywords = 12;
+  }
+
+  message Device {
+    message DeviceExt {
+      optional string customid = 1;
+    }
+    optional string ua = 1;
+    optional BidRequest.Geo geo = 2;
+    optional string ip = 3;
+    optional string ipv6 = 4;
+    optional int32 devicetype = 5;
+    optional string make = 6;
+    optional string model = 7;
+    optional string os = 8;
+    optional int32 h = 9;
+    optional int32 w = 10;
+    optional int32 ppi = 11;
+    optional float pxratio = 12;
+    optional string carrier = 13;
+    optional int32 connectiontype = 14;
+    optional string ifa = 15;
+    optional string didsha1 = 16;
+    optional string didmd5 = 17;
+    optional string dpidsha1 = 18;
+    optional string dpidmd5 = 19;
+    optional string macsha1 = 20;
+    optional string macmd5 = 21;
+    optional DeviceExt ext = 22;
+    optional string imei = 23;
+    optional string anid = 24;
+    optional string mac = 25;
+  }
+
+  required string id = 1;
+  repeated Imp imp = 2;
+  optional App app = 3;
+  optional Device device = 4;
+  optional int32 at = 5;
+  optional int32 tmax = 6;
+  repeated string cur = 7;
+  repeated string bcat = 8;
+  repeated string badv = 9;
+  repeated string bapp = 10;
+}
